@@ -567,29 +567,35 @@ const NewLogs = () => {
             </div>
 
             {/* Quick Action Buttons */}
-            <div className="pt-4">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4">
-                {quickActions.map((action, index) => (
-                  <Button
-                    key={index}
-                    onClick={() => handleActionClick(action.value)}
-                    disabled={isLoading}
-                    className={cn(
-                      "h-12 font-medium text-sm transition-all duration-200",
-                      action.variant === "primary"
-                        ? "bg-primary hover:bg-primary/90 text-primary-foreground"
-                        : "bg-primary/20 hover:bg-primary/30 text-primary border border-primary/40",
-                    )}
-                  >
-                    {action.label.includes("Custom ClientID")
-                      ? isCustomClientMode
-                        ? "Switch To ClientID List"
-                        : action.label
-                      : action.label}
-                  </Button>
-                ))}
-              </div>
-            </div>
+       <div className="pt-4">
+  <div className="grid grid-cols-3 gap-4">
+    {quickActions.map((action, index) => (
+      <Button
+        key={index}
+        onClick={() => handleActionClick(action.value)}
+        disabled={isLoading}
+        className={cn(
+          "relative overflow-hidden h-12 font-medium text-sm transform transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg",
+          
+          // Shine effect
+          "before:absolute before:top-0 before:left-[-100%] before:h-full before:w-1/2 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:skew-x-12 before:transition-all before:duration-500 hover:before:left-[120%]",
+
+          action.variant === "primary"
+            ? "bg-primary hover:bg-primary/90 text-primary-foreground"
+            : "bg-primary/20 hover:bg-primary/30 text-primary border border-primary/40",
+
+          isLoading && "pointer-events-none opacity-70"
+        )}
+      >
+        {action.label.includes("Custom ClientID")
+          ? isCustomClientMode
+            ? "Switch To ClientID List"
+            : action.label
+          : action.label}
+      </Button>
+    ))}
+  </div>
+</div>
           </div>
 
           {/* ====================== FULL SCREEN LOADER ====================== */}

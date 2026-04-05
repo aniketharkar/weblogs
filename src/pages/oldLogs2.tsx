@@ -383,9 +383,9 @@ function OldLogs2() {
         <Header title="Old Logs" onMenuClick={() => setSidebarOpen(true)} />
 
         <main className="flex-1 flex flex-col justify-center items-center px-4 py-6 md:px-10">
-          <h1 className="text-3xl md:text-3xl font-bold text-primary tracking-wide bg-gradient-to-r mb-3">
+          {/* <h1 className="text-3xl md:text-3xl font-bold text-primary tracking-wide bg-gradient-to-r mb-3">
             LOGS DOWNLOADER
-          </h1>
+          </h1> */}
 
        <div className="w-full max-w-[95%] xl:max-w-[1400px] 2xl:max-w-[1600px] bg-card border border-border shadow-md rounded-xl p-6 md:p-10 space-y-5">
 
@@ -561,59 +561,66 @@ function OldLogs2() {
 
             {/* Action Buttons */}
             <div className="pt-4">
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-                <Button
-                  onClick={() => logsDownload("iOSCP3", isLive ? "Live" : "Local")}
-                  className="h-12 font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  iOS CP3 {isLive ? "Live" : "Local"}
-                </Button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-                <Button
-                  onClick={() => logsDownload("iOS", isLive ? "Live" : "Local")}
-                  className="h-12 font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  iOS Logs
-                </Button>
+  <Button
+    onClick={() => logsDownload("iOSCP3", isLive ? "Live" : "Local")}
+    className="relative overflow-hidden h-12 w-full font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground transform transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg
+    before:absolute before:top-0 before:left-[-100%] before:h-full before:w-1/2 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:skew-x-12 before:transition-all before:duration-500 hover:before:left-[120%]"
+  >
+    iOS CP3 {isLive ? "Live" : "Local"}
+  </Button>
 
-                <Button
-                  onClick={() => logsDownload("Android", isLive ? "Live" : "Local")}
-                  className="h-12 font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  Android Logs
-                </Button>
+  <Button
+    onClick={() => logsDownload("iOS", isLive ? "Live" : "Local")}
+    className="relative overflow-hidden h-12 w-full font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground transform transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg
+    before:absolute before:top-0 before:left-[-100%] before:h-full before:w-1/2 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:skew-x-12 before:transition-all before:duration-500 hover:before:left-[120%]"
+  >
+    iOS Logs
+  </Button>
 
-                <Button
-                  onClick={() => logsDownload("API", isLive ? "Live" : "Local")}
-                  className="h-12 font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  API Logs
-                </Button>
+  <Button
+    onClick={() => logsDownload("Android", isLive ? "Live" : "Local")}
+    className="relative overflow-hidden h-12 w-full font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground transform transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg
+    before:absolute before:top-0 before:left-[-100%] before:h-full before:w-1/2 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:skew-x-12 before:transition-all before:duration-500 hover:before:left-[120%]"
+  >
+    Android Logs
+  </Button>
 
-                <Button
-                  onClick={() => logsDownload("UPW", isLive ? "Live" : "Local")}
-                  className="h-12 font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  UPW Logs
-                </Button>
+  <Button
+    onClick={() => logsDownload("API", isLive ? "Live" : "Local")}
+    className="relative overflow-hidden h-12 w-full font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground transform transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg
+    before:absolute before:top-0 before:left-[-100%] before:h-full before:w-1/2 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:skew-x-12 before:transition-all before:duration-500 hover:before:left-[120%]"
+  >
+    API Logs
+  </Button>
 
-                <Button
-                  onClick={() => logsDownload("AllLogs", "Live")}
-                  className="h-12 font-medium text-sm"
-                  style={{ backgroundColor: "#38a169", color: "#0f1a1a" }}
-                >
-                  All Logs (Live)
-                </Button>
+  <Button
+    onClick={() => logsDownload("UPW", isLive ? "Live" : "Local")}
+    className="relative overflow-hidden h-12 w-full font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground transform transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg
+    before:absolute before:top-0 before:left-[-100%] before:h-full before:w-1/2 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:skew-x-12 before:transition-all before:duration-500 hover:before:left-[120%]"
+  >
+    UPW Logs
+  </Button>
 
-                <Button
-                  onClick={objectDownload}
-                  className={cn(
-                    "h-12 font-medium text-sm col-span-2 bg-primary hover:bg-primary/90 text-primary-foreground"
-                  )}
-                >
-                  Download Reporting Object
-                </Button>
-              </div>
+  <Button
+    onClick={() => logsDownload("AllLogs", "Live")}
+    className="relative overflow-hidden h-12 w-full font-medium text-sm transform transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg
+    before:absolute before:top-0 before:left-[-100%] before:h-full before:w-1/2 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:skew-x-12 before:transition-all before:duration-500 hover:before:left-[120%]"
+    style={{ backgroundColor: "#38a169", color: "#0f1a1a" }}
+  >
+    All Logs (Live)
+  </Button>
+
+  <Button
+    onClick={objectDownload}
+    className="relative overflow-hidden h-12 w-full font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground transform transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg
+    before:absolute before:top-0 before:left-[-100%] before:h-full before:w-1/2 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:skew-x-12 before:transition-all before:duration-500 hover:before:left-[120%]"
+  >
+    Download Reporting Object
+  </Button>
+
+</div>
             </div>
           </div>
 
