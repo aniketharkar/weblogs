@@ -1,6 +1,6 @@
 import { FileText, ChevronLeft, ChevronRight, X, Archive } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom"; // ✅ added Link
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -15,8 +15,14 @@ interface AppSidebarProps {
   onToggleCollapse: () => void;
 }
 
-export function AppSidebar({ isOpen, onClose, collapsed, onToggleCollapse }: AppSidebarProps) {
+export function AppSidebar({
+  isOpen,
+  onClose,
+  collapsed,
+  onToggleCollapse,
+}: AppSidebarProps) {
   const location = useLocation();
+
   return (
     <>
       {/* Mobile Overlay */}
@@ -35,18 +41,14 @@ export function AppSidebar({ isOpen, onClose, collapsed, onToggleCollapse }: App
       {/* Sidebar */}
       <motion.aside
         initial={false}
-        animate={{ 
+        animate={{
           width: collapsed ? 72 : 240,
         }}
         className={cn(
           "h-screen bg-sidebar flex flex-col border-r border-sidebar-border",
-          // Mobile: fixed overlay that slides in
           "fixed inset-y-0 left-0 z-50",
-          // Desktop: relative positioning
           "lg:relative lg:z-auto",
-          // Hidden on mobile by default, shown when isOpen is true
           isOpen ? "translate-x-0" : "-translate-x-full",
-          // Always visible on desktop
           "lg:translate-x-0"
         )}
       >
@@ -61,17 +63,25 @@ export function AppSidebar({ isOpen, onClose, collapsed, onToggleCollapse }: App
                 className="flex items-center gap-2"
               >
                 <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">P</span>
+                  <span className="text-primary-foreground font-bold text-sm">
+                    P
+                  </span>
                 </div>
-                <span className="text-sidebar-foreground font-semibold text-lg">phy</span>
+                <span className="text-sidebar-foreground font-semibold text-lg">
+                  phy
+                </span>
               </motion.div>
             )}
           </AnimatePresence>
+
           {collapsed && (
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center mx-auto">
-              <span className="text-primary-foreground font-bold text-sm">P</span>
+              <span className="text-primary-foreground font-bold text-sm">
+                P
+              </span>
             </div>
           )}
+
           {/* Mobile Close Button */}
           <button
             onClick={onClose}
@@ -85,10 +95,11 @@ export function AppSidebar({ isOpen, onClose, collapsed, onToggleCollapse }: App
         <nav className="flex-1 p-3 space-y-1">
           {navItems.map((item) => {
             const isActive = location.pathname === item.href;
+
             return (
-              <a
+              <Link
                 key={item.title}
-                href={item.href}
+                to={item.href} // ✅ FIXED (was href)
                 onClick={onClose}
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
@@ -101,9 +112,12 @@ export function AppSidebar({ isOpen, onClose, collapsed, onToggleCollapse }: App
                 <item.icon
                   className={cn(
                     "w-5 h-5 flex-shrink-0",
-                    isActive ? "text-sidebar-primary" : "text-sidebar-foreground group-hover:text-sidebar-primary"
+                    isActive
+                      ? "text-sidebar-primary"
+                      : "text-sidebar-foreground group-hover:text-sidebar-primary"
                   )}
                 />
+
                 <AnimatePresence mode="wait">
                   {!collapsed && (
                     <motion.span
@@ -116,12 +130,12 @@ export function AppSidebar({ isOpen, onClose, collapsed, onToggleCollapse }: App
                     </motion.span>
                   )}
                 </AnimatePresence>
-              </a>
+              </Link>
             );
           })}
         </nav>
 
-        {/* Collapse Button - Desktop Only */}
+        {/* Collapse Button */}
         <div className="hidden lg:block p-3 border-t border-sidebar-border">
           <button
             onClick={onToggleCollapse}
