@@ -372,9 +372,9 @@ const NewLogs = () => {
         <Header title="New Logs" onMenuClick={() => setSidebarOpen(true)} />
 
         <main className="mt-5 flex flex-col justify-center items-center px-4 py-2 pt-5 md:px-10">
-          <h1 className="text-3xl md:text-3xl font-bold text-primary tracking-wide bg-gradient-to-r mb-3">
+          {/* <h1 className="text-3xl md:text-3xl font-bold text-primary tracking-wide bg-gradient-to-r mb-3">
             USER LOGS
-          </h1>
+          </h1> */}
 
           <div className={`w-full max-w-[95%] xl:max-w-[1400px] 2xl:max-w-[1700px] mx-auto bg-card border border-border shadow-md rounded-xl p-6 md:p-10 space-y-5 transition-all duration-300 ${isLoading ? 'blur-sm pointer-events-none' : ''}`}>
             
