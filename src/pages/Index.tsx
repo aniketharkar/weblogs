@@ -371,15 +371,15 @@ const NewLogs = () => {
       <div className="flex-1 flex flex-col min-w-0">
         <Header title="New Logs" onMenuClick={() => setSidebarOpen(true)} />
 
-        <main className="flex-1 flex flex-col items-center px-4 py-8 md:px-8 relative">
+        <main className="mt-5 flex flex-col justify-center items-center px-4 py-2 pt-5 md:px-10">
           <h1 className="text-3xl md:text-3xl font-bold text-primary tracking-wide bg-gradient-to-r mb-3">
             USER LOGS
           </h1>
 
-          <div className={`w-full max-w-3xl bg-card border border-border shadow-md shadow-xl rounded-xl p-6 md:p-8 space-y-3 transition-all duration-300 ${isLoading ? 'blur-sm pointer-events-none' : ''}`}>
+          <div className={`w-full max-w-[95%] xl:max-w-[1400px] 2xl:max-w-[1700px] mx-auto bg-card border border-border shadow-md rounded-xl p-6 md:p-10 space-y-5 transition-all duration-300 ${isLoading ? 'blur-sm pointer-events-none' : ''}`}>
             
             {/* Row 1: Client ID + Sort Buttons + Date + Date Nav */}
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto] gap-4 items-end">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto] gap-4 items-end">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-muted-foreground flex uppercase tracking-wide">
                   <FiUsers className="me-1" /> Client ID {isCustomClientMode && "(Custom)"}
@@ -389,7 +389,7 @@ const NewLogs = () => {
                     value={clientId}
                     onChange={(e) => handleClientIdChange(e.target.value)}
                     placeholder="Enter Custom Client ID"
-                    className="h-11 w-[350px] bg-card border-primary/30 focus:border-primary placeholder:text-primary/50"
+                    className="h-11 w-full bg-card border-primary/30 focus:border-primary placeholder:text-primary/50"
                     disabled={isLoading}
                   />
                 ) : (
@@ -486,7 +486,7 @@ const NewLogs = () => {
             </div>
 
             {/* Row 2: Module Type + Rep Code + Environment */}
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto] gap-4 items-end">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto] gap-4 items-end">
               <div className="space-y-2">
                 <label className="text-sm font-medium flex text-muted-foreground uppercase tracking-wide">
                   <VscFileSubmodule className="me-1 " />Module Type
@@ -568,7 +568,7 @@ const NewLogs = () => {
 
             {/* Quick Action Buttons */}
             <div className="pt-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4">
                 {quickActions.map((action, index) => (
                   <Button
                     key={index}

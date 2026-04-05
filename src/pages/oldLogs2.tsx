@@ -382,15 +382,15 @@ function OldLogs2() {
       <div className="flex-1 flex flex-col min-w-0">
         <Header title="Old Logs" onMenuClick={() => setSidebarOpen(true)} />
 
-        <main className="flex-1 flex flex-col items-center px-4 py-8 md:px-8 relative">
-          {/* <h1 className="text-1xl md:text-1xl font-bold text-primary tracking-wide bg-gradient-to-r mb-3">
+        <main className="flex-1 flex flex-col justify-center items-center px-4 py-6 md:px-10">
+          <h1 className="text-3xl md:text-3xl font-bold text-primary tracking-wide bg-gradient-to-r mb-3">
             LOGS DOWNLOADER
-          </h1> */}
+          </h1>
 
-          <div className="w-full max-w-3xl bg-card border border-border shadow-md shadow-xl rounded-xl p-6 md:p-8 space-y-3">
+       <div className="w-full max-w-[95%] xl:max-w-[1400px] 2xl:max-w-[1600px] bg-card border border-border shadow-md rounded-xl p-6 md:p-10 space-y-5">
 
             {/* Row 1: Client ID + nav arrows + Date + date nav */}
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto] gap-4 items-end">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto] gap-4 items-end">
 
               {/* Client ID */}
               <div className="space-y-2">
@@ -485,7 +485,7 @@ function OldLogs2() {
             </div>
 
             {/* Row 2: Filename + Environment + Custom toggle */}
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] gap-4 items-end">
+            <div className="grid grid-cols-1 lg:grid-cols-[2fr_2fr_auto] gap-4 items-end">    
 
               {/* Filename */}
               <div className="space-y-2">
@@ -561,7 +561,7 @@ function OldLogs2() {
 
             {/* Action Buttons */}
             <div className="pt-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                 <Button
                   onClick={() => logsDownload("iOSCP3", isLive ? "Live" : "Local")}
                   className="h-12 font-medium text-sm bg-primary hover:bg-primary/90 text-primary-foreground"
