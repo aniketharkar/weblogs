@@ -193,7 +193,7 @@ const NewLogs = () => {
       return;
     }
 
-    let fullContent = "";
+    const parts: string[] = [];
 
     logs.forEach((log) => {
       let logEntry = "";
@@ -219,12 +219,12 @@ const NewLogs = () => {
                     "===================================================================================================================================================================================================================\n\n"
       }
 
-      fullContent += logEntry;
+       parts.push(logEntry);
     });
 
     const filename = `${clientId}_${repCode}_${dayjs(date).format("YYYY-MM-DD")}.txt`;
 
-    const blob = new Blob([fullContent], { type: "text/plain" });
+    const blob = new Blob(parts, { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;

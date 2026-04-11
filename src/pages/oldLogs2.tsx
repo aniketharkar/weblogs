@@ -382,7 +382,7 @@ function OldLogs2() {
       <div className="flex-1 flex flex-col min-w-0">
         <Header title="Old Logs" onMenuClick={() => setSidebarOpen(true)} />
 
-        <main className="flex-1 flex flex-col justify-center items-center px-4 py-6 md:px-10">
+        <main className="flex-1 flex flex-col items-center px-4 py-10 md:px-10">
           {/* <h1 className="text-3xl md:text-3xl font-bold text-primary tracking-wide bg-gradient-to-r mb-3">
             LOGS DOWNLOADER
           </h1> */}
